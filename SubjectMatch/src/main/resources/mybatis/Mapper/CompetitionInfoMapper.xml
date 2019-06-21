@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.stbu.jw.subjectmatch.Mapper.CompetitionInfoMapper">
+    <select id="getCIById" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
+        select * from CompetitionInfo where id=#{id}
+    </select>
+
+    <select id="listAll" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
+        select * from CompetitionInfo
+    </select>
+
+    <insert id="insertCI">
+        insert into CompetitionInfo(title,applyDate,matchDate,content,matchCount,matchStatus,imageUrl,releaseDate,remark)
+        values(#{title},#{applyDate},#{matchDate},#{content},#{matchCount},#{matchStatus},#{imageUrl},#{releaseDate},#{remark})
+    </insert>
+
+    <delete id="deleteCI">
+        delete from CompetitionInfo where id=#{id}
+    </delete>
+
+    <update id="updateCI">
+        update CompetitionInfo set title=#{title},startDate=#{startDate},endDate=#{endDate},matchDate=#{matchDate},content=#{content},matchCount=#{matchCount},matchStatus=#{matchStatus},imageUrl=#{imageUrl},releaseDate=#{releaseDate},remark=#{remark}
+        where id=#{id}
+    </update>
+</mapper>
