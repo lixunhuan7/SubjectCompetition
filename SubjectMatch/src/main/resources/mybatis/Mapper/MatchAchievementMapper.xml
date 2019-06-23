@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.stbu.jw.subjectmatch.Mapper.MatchAchievementMapper">
+    <select id="getObjectById" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchAchievement">
+        select * from MatchAchievement where id=#{id}
+    </select>
+    <select id="getObjectByTitle" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchAchievement">
+        select * from MatchAchievement where achName=#{achName}
+    </select>
+    <select id="listAll" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchAchievement">
+        select * from MatchAchievement
+    </select>
+    <select id="getAll" resultType="int">
+        select count(*) from MatchAchievement
+    </select>
+    <select id="limitQuery" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchAchievement">
+        select * from MatchAchievement limit #{index},#{pageSize}
+    </select>
+
+    <insert id="save">
+        insert into MatchAchievement(achName,imageUrl,content,uploadDate,remark)
+        values(#{achName},#{imageUrl},#{content},#{uploadDate},#{remark})
+    </insert>
+
+    <delete id="delete">
+        delete from MatchAchievement where id=#{id}
+    </delete>
+
+    <update id="update">
+        update MatchAchievement set achName=#{achName},imageUrl=#{imageUrl},content=#{content},uploadDate=#{uploadDate},remark=#{remark}
+        where id=#{id}
+    </update>
+
+</mapper>

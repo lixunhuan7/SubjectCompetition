@@ -6,11 +6,18 @@
     <select id="getCIById" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
         select * from CompetitionInfo where id=#{id}
     </select>
-
+    <select id="getCompetitionInfoByTitle" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
+        select * from CompetitionInfo where title=#{title}
+    </select>
     <select id="listAll" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
         select * from CompetitionInfo
     </select>
-
+    <select id="getAll" resultType="int">
+        select count(*) from CompetitionInfo
+    </select>
+    <select id="limitQuery" resultType="cn.edu.stbu.jw.subjectmatch.Entity.CompetitionInfo">
+        select * from CompetitionInfo limit #{index},#{pageSize}
+    </select>
     <insert id="insertCI">
         insert into CompetitionInfo(title,applyDate,matchDate,content,matchCount,matchStatus,imageUrl,releaseDate,remark)
         values(#{title},#{applyDate},#{matchDate},#{content},#{matchCount},#{matchStatus},#{imageUrl},#{releaseDate},#{remark})

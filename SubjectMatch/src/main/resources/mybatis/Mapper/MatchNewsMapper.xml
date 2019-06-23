@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.stbu.jw.subjectmatch.Mapper.MatchNewsMapper">
+    <select id="getObjectById" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchNews">
+        select * from MatchNews where id=#{id}
+    </select>
+    <select id="getObjectByTitle" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchNews">
+        select * from MatchNews where title=#{title}
+    </select>
+    <select id="listAll" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchNews">
+        select * from MatchNews
+    </select>
+    <select id="getAll" resultType="int">
+        select count(*) from MatchNews
+    </select>
+    <select id="limitQuery" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchNews">
+        select * from MatchNews limit #{index},#{pageSize}
+    </select>
+
+    <insert id="save">
+        insert into MatchNews(title,imageUrl,content,replaceDate,replaceUnit,promulgator,browingCount,remark)
+        values(#{title},#{imageUrl},#{content},#{replaceDate},#{replaceUnit},#{promulgator},#{browingCount},#{remark})
+    </insert>
+
+    <delete id="delete">
+        delete from MatchNews where id=#{id}
+    </delete>
+
+    <update id="update">
+        update MatchNews set title=#{title},imageUrl=#{imageUrl},content=#{content},replaceDate=#{replaceDate},remark=#{remark},replaceUnit=#{replaceUnit},promulgator=#{promulgator},browingCount=#{browingCount}
+        where id=#{id}
+    </update>
+</mapper>

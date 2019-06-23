@@ -16,5 +16,9 @@ public interface CompetitionInfoMapper {
 
     List<CompetitionInfo> listAll();
 
+     List<CompetitionInfo> limitQuery(int index, int pageSize);
 
+    Integer getAll();
+
+    CompetitionInfo getCompetitionInfoByTitle(String title);
 }

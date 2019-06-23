@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.stbu.jw.subjectmatch.Mapper.MatchTrainingMapper">
+    <select id="getObjectById" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchTraining">
+        select * from MatchTraining where id=#{id}
+    </select>
+    <select id="getObjectByTitle" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchTraining">
+        select * from MatchTraining where title=#{title}
+    </select>
+    <select id="listAll" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchTraining">
+        select * from MatchTraining
+    </select>
+    <select id="getAll" resultType="int">
+        select count(*) from MatchTraining
+    </select>
+    <select id="limitQuery" resultType="cn.edu.stbu.jw.subjectmatch.Entity.MatchTraining">
+        select * from MatchTraining limit #{index},#{pageSize}
+    </select>
+
+    <insert id="save">
+        insert into MatchTraining(title,imageUrl,content,trainingDate,endDate,remark)
+        values(#{title},#{imageUrl},#{content},#{trainingDate},#{endDate},#{remark})
+    </insert>
+
+    <delete id="delete">
+        delete from MatchTraining where id=#{id}
+    </delete>
+
+    <update id="update">
+        update MatchTraining set title=#{title},imageUrl=#{imageUrl},content=#{content},trainingDate=#{trainingDate},remark=#{remark},endDate=#{endDate}
+        where id=#{id}
+    </update>
+</mapper>
